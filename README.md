@@ -7,20 +7,6 @@ The goal of this project is to ensure the correct functioning of Trello APIs by 
 🔧 Dependencies
 All API requests are designed with realistic dependencies between endpoints. The chart below shows the logical execution order and prerequisites for each operation:
 
-API Operation	Dependencies
-Create Board	None
-Get Board	Create Board → Get Board
-Update Board	Create Board → Update Board → Get Board
-Delete Board	Create Board → Update Board → Delete Board → Get Board
-Create List	Create Board → Get Board
-Get List	Create List → Get List
-Update List	Create List → Update List → Get List
-Delete List	Create List → Update Card → Delete List → Get List
-Create Card	Create List → Get Card
-Get Card	Create Card → Get Card
-Update Card	Create Card → Update Card → Get Card
-Delete Card	Create Card → Delete Card → Get Card
-
 ⚙️ Each test case includes API endpoint, HTTP method, request body, assertion logic, and dependency handling.
 
 🛠️ Tools Used
@@ -37,9 +23,6 @@ Manual + Automated Testing – hybrid testing style
 📁 Test Structure
 The test suite includes the following:
 
-pgsql
-Copy
-Edit
 /Trello-API-Testing
 │
 ├── Boards/
@@ -63,7 +46,32 @@ Edit
 └── Environment/
     └── TrelloEnvironment.postman_environment.json
 
+🔗 API Operations and Their Dependencies
+
+📁 Board Operations
+
+Operation	Dependency Flow
+Create Board	    None
+Get Board	        Create Board → Get Board
+Update Board	    Create Board → Update Board → Get Board
+Delete Board	    Create Board → Update Board → Delete Board → Get Board
+
+📂 List Operations
+Operation	Dependency Flow
+Create List	Create Board → Get Board
+Get List	Create List → Get List
+Update List	Create List → Update List → Get List
+Delete List	Create List → Update Card → Delete List → Get List
+
+🗂️ Card Operations
+Operation	Dependency Flow
+Create Card	Create List → Get Card
+Get Card	Create Card → Get Card
+Update Card	Create Card → Update Card → Get Card
+Delete Card	Create Card → Delete Card → Get Card
+
 🚀 Getting Started
+
 Clone this repo
 
 Import the collection and environment into Postman
