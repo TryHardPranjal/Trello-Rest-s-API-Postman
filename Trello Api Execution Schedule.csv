@@ -1,0 +1,13 @@
+Requests,Dependency,Order,Order after Checks,,,,,,
+Create Board,None,Create Board,Create Board -> Get Board,,Post Request-> Get Request,,,,
+Update Board,Create Board,Create List,Create List -> Get List,,Update Request->Get Request,,,,
+Get Board,Create Board,Create Card,Create Card -> Get Card,,Delete Request->Get Request,,,,
+Delete Board,Create Board,Update Board,Update Board -> Get Board,,,,,,
+Create List,Create Board,Get Board,Update List -> Get List,LIFO,Last in First Out,,,,
+Update List,Create List,Update List,Update Card -> Get Card,,,,,,
+Get List,Create List,Get List,Delete Card -> Get Card,,,,,,
+Delete List,Create List,Update Card,Delete List -> Get List,Create Board,Create List,Create Card,Delete Card,Delete List,Delete Board
+Create Card ,Create List,Get Card,Delete Board -> Get Board,,,,,,
+Update Card,Create Card,Delete Card,,,,,,,
+Get Card,Create Card,Delete List,,,,,,,
+Delete Card,Create Card,Delete Board,,,,,,,
